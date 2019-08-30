@@ -6,7 +6,7 @@ HPATH=/usr/share/hunspell
 mkdir ./tmp
 
 # extract tarball
-tar xf *preao* -C ./tmp
+tar xf $(ls -I '*preao*' | grep .tar.gz) -C ./tmp
 
 # go inside tarball extracted hunspell directory
 cd ./tmp/*/
@@ -14,9 +14,6 @@ cd ./tmp/*/
 # install portuguese preAO dictionaries into hunspell
 sudo cp pt_PT-preao.aff ${HPATH}/
 sudo cp pt_PT-preao.dic ${HPATH}/
-cd ${HPATH}
-sudo ln -sf pt_PT-preao.aff pt_PT.aff
-sudo ln -sf pt_PT-preao.dic pt_PT.dic
 
 # delete temporary directory
 cd ../../
